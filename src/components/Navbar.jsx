@@ -20,7 +20,7 @@ const Navbar = ({resetPage}) => {
         catch(e){
           console.log(e);
         }
-        navigate(`/Peliculas/${query}`)
+        navigate(`search/${query}`)
       }
     
     const handleChange = (e) => {
@@ -38,15 +38,15 @@ const Navbar = ({resetPage}) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link" to='/Peliculas' name="movie" onClick={resetPage}>Peliculas</Link>
+                            <Link className="nav-link" to='Peliculas' name="movie" onClick={resetPage}>Peliculas</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/TV-shows" name="shows" onClick={resetPage}>TV shows</Link>
+                            <Link className="nav-link" to="TV-shows" name="shows" onClick={resetPage}>TV shows</Link>
                         </li>
-                    <li className="nav-item">
-                    <Link className="nav-link" to="/About">About</Link>
-                    </li>
-                </ul>
+                        <li className="nav-item">
+                        <Link className="nav-link" to="About">About</Link>
+                        </li>
+                    </ul>
                     <form className="d-flex" role="search" onSubmit={searchMovie}>
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={query} onChange={handleChange}/>
                         <button className="btn btn-outline-primary" type="submit" >Search</button>
@@ -55,7 +55,7 @@ const Navbar = ({resetPage}) => {
             </div>
         </nav>
         <Routes>
-            <Route path={`/peliculas/${query}`} element={<SearchResults movie={movies}/>}></Route>
+            <Route path={`search/${query}`} element={<SearchResults movie={movies}/>}></Route>
         </Routes>
     </div>
   )

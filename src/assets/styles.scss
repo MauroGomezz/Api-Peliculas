@@ -10,7 +10,6 @@ body {
 
 .slider-container {
     max-height: 94vh;
-    width: 100vw;
     .carousel {
         color: #fff;
         max-height: inherit;
@@ -53,7 +52,7 @@ header {
         overflow: hidden;
         background: radial-gradient(#111 50%, #000 100%);
         margin: 0 10px;
-        height: 400px;
+        max-height: 400px;
         width: 300px !important;
         cursor: pointer;
         img {

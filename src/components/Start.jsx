@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../Hooks/useFetch';
+import Info from './Info';
 import Loading from './Loading';
 
 const Start = () => {
@@ -9,48 +10,50 @@ const Start = () => {
     return <Loading />;
   }
   const movie = data.results.slice(0, 5)
-
+  console.log(movie)
   return (
-    <article className='slider-container'>
-      <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div className="carousel-inner position-relative">
-          {
-            movie.map((movie, index) => {
-              if (index === 0) {
-                return(
-                  <div key={movie.id} className="carousel-item active" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}>
-                    <div className='position-absolute info-movie-container'>
-                      <h1 className='title-movie'>{movie.title}</h1>
-                      <p className='movie-desciption'>{movie.overview}</p>
-                      <span className='movie-date'>{movie.release_date}</span>
+    <main>
+      <article className='slider-container'>
+        <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div className="carousel-inner position-relative">
+            {
+              movie.map((movie, index) => {
+                if (index === 0) {
+                  return(
+                    <div key={movie.id} className="carousel-item active" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}>
+                      <div className='position-absolute info-movie-container'>
+                        <h1 className='title-movie'>{movie.title}</h1>
+                        <p className='movie-desciption'>{movie.overview}</p>
+                        <span className='movie-date'>{movie.release_date}</span>
+                      </div>
                     </div>
-                  </div>
-                )
-              } else {
-                return (
-                  <div key={movie.id} className="carousel-item" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}> 
-                    <div className='position-absolute info-movie-container'>
-                      <h1 className='title-movie'>{movie.title}</h1>
-                      <p className='movie-desciption'>{movie.overview}</p>
-                      <span className='movie-date'>{movie.release_date}</span>
+                  )
+                } else {
+                  return (
+                    <div key={movie.id} className="carousel-item" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}> 
+                      <div className='position-absolute info-movie-container'>
+                        <h1 className='title-movie'>{movie.title}</h1>
+                        <p className='movie-desciption'>{movie.overview}</p>
+                        <span className='movie-date'>{movie.release_date}</span>
+                      </div>
                     </div>
-                  </div>
-                )
-              }
-              }
-            )
-          }
+                  )
+                }
+                }
+              )
+            }
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-    </article>
+      </article>
+    </main>
   )
 }
 

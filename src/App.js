@@ -4,9 +4,10 @@ import Movies from './components/Movies';
 import Navbar from "./components/Navbar"
 import Start from "./components/Start"
 import Shows from "./components/Shows"
+import Info from './components/Info';
 
 function App() {
-  let [pag, setPag] = useState()
+  let [pag, setPag] = useState(1)
   
   const handleClick = (e) => {
     if (e.currentTarget.name === "mas" && pag < 1000) {
@@ -42,8 +43,6 @@ function App() {
         setQuery(e.target.value)
     }
 
-    console.log(movies)
-
     const resetResults = () => {
       setMovies([])
     }
@@ -52,9 +51,10 @@ function App() {
   <BrowserRouter>
     <Navbar resetPage={resetPage} handleChange={handleChange} searchMovie={searchMovie} query={query} movies={movies} resetResults={resetResults}/> 
     <Routes>
-      <Route path='/' element={<Start/>}></Route>
       <Route path='/Peliculas' element={<Movies pag={pag} handleClick={handleClick}/>}/>
+      <Route path="/Peliculas/:id" element={<Info/>}/>
       <Route path='/TV-shows' element={<Shows pag={pag} handleClick={handleClick}/>}/>
+      <Route path='/' element={<Start/>}></Route>
     </Routes>
   </BrowserRouter>
   );
