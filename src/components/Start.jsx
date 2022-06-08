@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom';
 import useFetch from '../Hooks/useFetch';
-import Info from './Info';
 import Loading from './Loading';
 
 const Start = () => {
@@ -22,7 +22,9 @@ const Start = () => {
                   return(
                     <div key={movie.id} className="carousel-item active" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}>
                       <div className='position-absolute info-movie-container'>
-                        <h1 className='title-movie'>{movie.title}</h1>
+                        <Link to={`/Peliculas/${movie.id}`}>
+                          <h1 className='title-movie'>{movie.title}</h1>
+                        </Link>
                         <p className='movie-desciption'>{movie.overview}</p>
                         <span className='movie-date'>{movie.release_date}</span>
                       </div>
@@ -32,7 +34,9 @@ const Start = () => {
                   return (
                     <div key={movie.id} className="carousel-item" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`, backgroundRepeat: "no-repeat"}}> 
                       <div className='position-absolute info-movie-container'>
-                        <h1 className='title-movie'>{movie.title}</h1>
+                        <Link to={`/Peliculas/${movie.id}`}>
+                          <h1 className='title-movie'>{movie.title}</h1>
+                        </Link>
                         <p className='movie-desciption'>{movie.overview}</p>
                         <span className='movie-date'>{movie.release_date}</span>
                       </div>

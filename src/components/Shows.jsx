@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import useFetch from '../Hooks/useFetch';
 import Loading from './Loading';
@@ -13,14 +13,16 @@ const Card = ({pag, handleClick}) => {
   
   return (
     <div>
-        <button className='btn btn-primary' name="menos" onClick={handleClick}>Anterior</button>
-        <button className='btn btn-primary' name="mas" onClick={handleClick}>Siguiente</button>
+      <div className='container d-flex justify-content-center gap-5 mt-5'>
+        <button className='btn btn-primary fs-5' name="menos" onClick={handleClick}>Anterior</button>
+        <button className='btn btn-primary fs-5' name="mas" onClick={handleClick}>Siguiente</button>
+      </div>
       <header className="row align-items-start text-center mb-5 container mx-auto">
           {
             movie.map(movie =>(
               <div key={movie.id} className='col-6 col-md-3 mt-5 d-flex justify-content-center'>
                   <div className='tv-container'>
-                        <Link to={`/Peliculas/${movie.id}`}>
+                        <Link to={`/TV-shows/${movie.id}`}>
                         <h2 className='fs-5'>
                             {movie.name}
                         </h2>

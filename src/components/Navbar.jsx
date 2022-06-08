@@ -5,27 +5,22 @@ import SearchResults from './SearchResults';
 const Navbar = ({resetPage}) => {
 
     const navigate = useNavigate()
+    const [query, setQuery] = useState("");
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
     
-      const searchMovie = async(e)=> {
+      const searchMovie = (e)=> {
         e.preventDefault();
-        console.log("Searching");
-        try{
-          const url=`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${query}`;
-          const res= await fetch(url);
-          const data= await res.json();
-          setMovies(data.results);
-        }
-        catch(e){
-          console.log(e);
-        }
-        navigate(`search/${query}`)
+        navigate(`search/${query.split(" ").join("")}`)
       }
-    
-    const handleChange = (e) => {
+      const handleChange = (e) => {
         setQuery(e.target.value)
-    }
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${e.target.value}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data.results)          
+            setMovies(data.results)
+          })
+        }
 
   return (
     <div>
@@ -43,19 +38,16 @@ const Navbar = ({resetPage}) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="TV-shows" name="shows" onClick={resetPage}>TV shows</Link>
                         </li>
-                        <li className="nav-item">
-                        <Link className="nav-link" to="About">About</Link>
-                        </li>
                     </ul>
                     <form className="d-flex" role="search" onSubmit={searchMovie}>
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={query} onChange={handleChange}/>
-                        <button className="btn btn-outline-primary" type="submit" >Search</button>
+                        <input className="form-control me-2" type="text" placeholder="Search" value={query} onChange={handleChange}/>
+                        <button className="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </nav>
         <Routes>
-            <Route path={`search/${query}`} element={<SearchResults movie={movies}/>}></Route>
+            <Route path={`search/${query.split(" ").join("")}`} element={<SearchResults movie={movies}/>}></Route>
         </Routes>
     </div>
   )

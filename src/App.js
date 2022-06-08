@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movies from './components/Movies';
 import Navbar from "./components/Navbar"
 import Start from "./components/Start"
 import Shows from "./components/Shows"
-import Info from './components/Info';
+import InfoMovies from './components/InfoMovies';
+import InfoTv from './components/InfoTv';
 
 function App() {
   let [pag, setPag] = useState(1)
@@ -51,8 +52,9 @@ function App() {
   <BrowserRouter>
     <Navbar resetPage={resetPage} handleChange={handleChange} searchMovie={searchMovie} query={query} movies={movies} resetResults={resetResults}/> 
     <Routes>
+      <Route path="/Peliculas/:id" element={<InfoMovies/>}/>
       <Route path='/Peliculas' element={<Movies pag={pag} handleClick={handleClick}/>}/>
-      <Route path="/Peliculas/:id" element={<Info/>}/>
+      <Route path='/TV-shows/:id' element={<InfoTv/>}/>
       <Route path='/TV-shows' element={<Shows pag={pag} handleClick={handleClick}/>}/>
       <Route path='/' element={<Start/>}></Route>
     </Routes>

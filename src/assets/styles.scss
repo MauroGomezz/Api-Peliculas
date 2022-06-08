@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
     background-color: rgb(2, 0, 14);
+    a {
+        text-decoration: none;
+    }
 }
 
 .slider-container {
@@ -98,3 +104,72 @@ header {
         }
     }
 }
+
+.info-container-all {
+    padding: 2rem 2rem 0 2rem;
+    color: rgb(255, 255, 255);
+    .info-container {
+        
+        .info-img {
+            margin-top: 2rem;
+            img {
+                border-radius: 1.5rem;
+                max-width: 100%;
+            }
+        }
+        .extra-info {
+            margin: 2rem 0 0 2rem;
+            .movie-description {
+                font-size: 1.5rem;
+            }
+            .star-svg {
+                width: 50px;
+            }
+            .score {
+                font-size: 2rem;
+            }
+            .genres-container {
+                list-style: none;
+                display: flex;
+                padding: 0;
+                gap: 2rem;
+                margin: 2rem 0 2rem 0;
+                .genres {
+                    border: 1px solid rgb(11, 11, 102);
+                    padding: .5rem;
+                    border-radius: 16px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+            }
+            .time {
+                span {
+                    font-weight: 700;
+                }
+                font-size: 1.5rem;
+            }
+            .conpanies-container {
+                margin: 2rem 0 2rem 0;
+                span {
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                }
+                .conpanies-list {
+                    margin-top: .7rem;
+                    list-style: none;
+                    display: flex;
+                    padding: 0;
+                    gap: 2rem;
+                    margin: 2rem 0 2rem 0;
+                    .conpany {
+                        border: 1px solid rgb(11, 11, 102);
+                        padding: .5rem;
+                        border-radius: 16px;
+                        padding-left: 12px;
+                        padding-right: 12px;
+                    }
+                }
+            }
+        }
+    }
+    }
