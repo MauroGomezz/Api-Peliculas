@@ -11,7 +11,7 @@ const Info = () => {
     if (!data) {
         return <Loading />;
     }
-    console.log(data)
+
   return (
     <article className='info-container-all'>
         <h1 className='movie-title'>{data.original_title} ({data.release_date.slice(0, -6)})</h1>

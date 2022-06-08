@@ -10,7 +10,7 @@ const Start = () => {
     return <Loading />;
   }
   const movie = data.results.slice(0, 5)
-  console.log(movie)
+
   return (
     <main>
       <article className='slider-container'>
