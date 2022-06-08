@@ -16,8 +16,7 @@ const Navbar = ({resetPage}) => {
         setQuery(e.target.value)
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=bcc4ff10c2939665232d75d8bf0ec093&query=${e.target.value}`)
           .then(res => res.json())
-          .then(data => {
-            console.log(data.results)          
+          .then(data => {     
             setMovies(data.results)
           })
         }
