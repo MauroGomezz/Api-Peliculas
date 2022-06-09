@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Loading from './Loading'
 
 const SearchResults = ({movie}) => {
-  if (movie.length <= 1) {
+  if (!movie) {
     return <h1 className='text-center text-danger'>No se encontro la pelicula :/</h1>
   } else if (!movie) {
     return <Loading />
