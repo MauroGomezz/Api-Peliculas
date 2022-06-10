@@ -40,7 +40,7 @@ const Info = () => {
                         }
                     </ul>
                 </div>
-                <div className='d-flex align-items-center gap-2'>
+                <div className='d-flex align-items-center gap-2 mb-2'>
                     <img src={svg} alt="star" className='star-svg'/>
                     <span className='score'>{data.vote_average}/10</span>
                 </div>

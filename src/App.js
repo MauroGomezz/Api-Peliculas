@@ -54,7 +54,7 @@ function App() {
       <Route path='/Peliculas' element={<Movies pag={pag} handleClick={handleClick}/>}/>
       <Route path='/TV-shows/:id' element={<InfoTv/>}/>
       <Route path='/TV-shows' element={<Shows pag={pag} handleClick={handleClick}/>}/>
-      <Route path='/' element={<Start/>}></Route>
+      <Route path='/Api-peliculas' element={<Start/>}></Route>
     </Routes>
   </BrowserRouter>
   );
